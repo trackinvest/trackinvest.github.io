@@ -1,0 +1,348 @@
+// Variable Overrides 
+
+$body-bg: rgb(240, 240, 240);
+
+$gray-100: #fff;
+
+$theme-colors: (
+  "primary": #00a669
+
+); 
+
+$text-muted: (#1ece8d);
+
+$navbar-light-color:( #00a669);
+$navbar-light-hover-color:( #fff);
+
+
+$spacer: 1rem !default;
+$spacers: () !default;
+$spacers: map-merge((
+  0: 0,
+  1: ($spacer * .25),
+  2: ($spacer * .5),
+  3: $spacer,
+  4: ($spacer * 1.5),
+  5: ($spacer * 3),
+  6: ($spacer * 6), //Custom size
+  10: ($spacer * 10) //Custom size
+), $spacers);
+
+
+// Bootstrap Sass Imports
+@import "node_modules/bootstrap/scss/bootstrap";
+
+///////////////// ↓ Here goes custom css (Note, place CSS overrides below Sass Imports to avoid having to use !important) ////////////////////////
+
+
+///////////////////////////////// NAVBAR ///////////////////////////
+
+.navbar{
+  -webkit-box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.10);
+   -moz-box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.10);
+   box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.10);
+  padding-top: 1em;
+  padding-bottom: 1em;
+  background: rgba(255, 255, 255, 0.95) 
+}
+
+.navbar .nav-link{
+  transition-duration: 600ms;
+  //background: #fff;
+  font-family: 'Karla', sans-serif;
+  font-weight: 400;
+  font-size:1em;
+  color:rgb(0, 155, 95); 
+}
+
+.navbar .nav-link:hover{
+  color:#fff;
+  background: #00a669;
+  padding-right:1em; //This makes the exapnd effect on hover.
+  padding-left:1em; //This makes the exapnd effect on hover.
+}
+
+.nav-link:focus{
+  color:#00a669;
+}
+
+.nav-link{
+  @media (max-width: 1000px){
+    text-align: right;
+    line-height: .7em;
+  }
+  @media (max-width: 350px){
+  text-align: center;
+  }
+}
+
+/////////////////////////////////// FOOTER //////////////////////////////////
+
+.footer{
+  padding-top: 2em;
+  padding-bottom: 2em;
+  @media (max-width: 1000px){
+    font-size: .7em; ///////// to make footer font smaller on smaller screens /////
+    line-height: .5em; 
+  }
+  //border-top: 1px solid rgba(0, 0, 0, .1); //Enable this line if you use 100% white background on footer
+  font-family: 'Frank Ruhl Libre', serif;
+  font-weight: 300;
+  font-size: .9em;
+}
+
+.FootCol1{  //////////// Custom class to align middle footer column to the left on larger screens.///////
+  @media (min-width: 560px){
+    margin-right: auto;
+    }
+}
+
+////////////////////////////////// CONTAINERS ///////////////////////////////////////
+
+.container {
+  max-width: 1140px; ////////// To make entire site contents width tighter. (Bootstrap default 1140px on larger screens)//////////////
+}
+
+.containerWrapper{
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  padding-top: 7em;
+  padding-bottom: 5em;
+}
+
+////////////////////////////////////// CAROUSEL ////////////////////////////////////
+
+.carousel {
+  @media (min-width: 1000px){
+  position: relative;
+  //padding: 2em;
+  height:100%;
+  }
+}
+
+.carousel-caption{
+  h1{
+    font-size: 2em;
+    font-weight: 700;
+    line-height: 1em;
+    }
+    .smallHeader{
+      font-family: 'Karla', sans-serif;
+      font-size: 1em;
+      font-weight: 400;
+      letter-spacing: .8em;
+    
+    }
+    @media (min-width: 1000px){  
+     margin-right:200px; //Delete theese for full-width captions//
+     margin-left:200px; //Delete theese for full-width captions//
+     border-width: 1em;
+     h1{
+        font-family: 'Frank Ruhl Libre', serif;
+        font-weight: 500;
+        font-size: 5em;
+        letter-spacing: .1em;
+      }
+      P{
+        font-family: 'Karla', sans-serif;
+        font-weight: 400;
+        font-size: 1.2em;
+        font-weight: 300;
+        letter-spacing: .1em;
+        //background: rgba(90, 90, 90, 0.75)// Caption transparent box background.//
+      }
+    }
+    padding:1em;
+    top: 50%; //This sets vertical alignment for caption//
+    transform: translateY(-50%); //This sets vertical alignment for caption//
+    bottom: initial; //This ereases default padding after setting vertical alignment//
+    //background-color: rgba(104, 104, 104, 0.4); //this is the graybox behind caption//
+
+    //border-style: solid;
+    //border-color: #fff;
+    //border-width: .1em;
+    //border-radius: 1em;
+    
+    
+  
+}
+
+.carousel-indicators li {
+  width:.7em;
+  height:.7em;
+  border-radius: 10em; //This makes carousel indicators rounded (remove this line for default rectangle look)
+}
+
+//////////////////////////////////////////// CARDS ////////////////////////////////////////////
+
+.card{
+    //-webkit-box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.05);
+    //-moz-box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.05);
+    //box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.05);
+    h5{
+      font-weight: 400;
+      font-size: 1.3em;
+      letter-spacing: .05em;
+    }
+    border-radius: 0em;
+}
+
+.item{
+  -webkit-transform-style: preserve-3d; //Theese three prevent blurry elements when it's placed on half a pixel//
+  -moz-transform-style: preserve-3d; //Theese three prevent blurry elements when it's placed on half a pixel//
+  transform-style: preserve-3d; //Theese three prevent blurry elements when it's placed on half a pixel//
+}
+
+///////////////////////////////////////// BUTTONS, ACCORDION AND DIVIDERS /////////////////////////////////////////////
+
+hr{
+  width:100%;
+}
+
+.hr2{
+  width:100%;
+}
+
+.btn{
+  border-width: .1em;
+  border-radius: 0em;
+    //-webkit-box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.10);
+    //-moz-box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.10);
+    //box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.10);
+}
+
+.accordion{
+  .btn{
+      border-width: .1em;
+      border-radius: 0em;
+      -webkit-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.1);
+      -moz-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.5);
+      box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0); // To disable .btn boxshadow effect on accordion buttons (for design purposes)
+      @media (min-width: 1000px){
+        font-size: 1em; // This makes button text larger on bigger screens.
+      }
+      
+      font-weight: 600;
+      white-space: normal; // This makes the button text wrap on smaller screen. 
+      text-align: left; // Button text align to the left (default is centered).
+  }
+  
+}
+
+////////////////////////////////////////////// IMAGES /////////////////////////////////////
+
+.jumbotron {
+  padding: 10rem 2rem;
+      padding-right: 2rem;
+      padding-left: 2rem;
+}
+
+.img-fluid{
+  //-webkit-box-shadow: 43px 42px 0px 7px rgba(237,237,237,1);
+  //-moz-box-shadow: 43px 42px 0px 7px rgba(237,237,237,1);
+  //box-shadow: 43px 42px 0px 7px rgba(237,237,237,1);
+
+}
+
+////////////////////////////////////////////// PARALAX BACKGROUNDS //////////////////////////////////////////
+
+.pc {
+  /* The image used */
+  background-image: url("../images/mountain.jpg");
+
+  /* Set a specific height */
+  min-height: 500px; 
+
+  /* Create the pc scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.pcService {
+  background-image: url("../images/bg3.png");
+  min-height: 500px; 
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.pcStaff {
+  background-image: url("../images/bgStaff.jpg");
+  min-height: 500px; 
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.pcContact {
+  background-image: url("../images/bgContact.jpg");
+  min-height: 500px; 
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.pcFaq{
+   background-image: url("../images/bgFaq.jpg");
+   min-height: 500px; 
+   background-attachment: fixed;
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+}
+
+//////////////////////////////////// FONTS //////////////////////////////////////////////////
+
+h1{
+  font-family: 'Frank Ruhl Libre', serif;
+  font-weight: 400;
+}
+
+h2{
+  font-family: 'Frank Ruhl Libre', serif;
+  font-weight: 400;
+  color: #00a669;
+  
+}
+
+h3{
+  font-family: 'Frank Ruhl Libre', serif;
+  font-weight: 400;
+  color: #00a669;
+}
+
+h4{
+  font-family: 'Frank Ruhl Libre', serif;
+  font-weight: 400;
+}
+
+h5{
+  font-family: 'Karla', sans-serif;
+  font-size: 1em;
+  font-weight: 400;
+}
+
+body{
+  font-family: 'Karla', sans-serif;
+  font-weight: 400;
+ 
+}
+
+.smallHeader{
+  font-family: 'Karla', sans-serif;
+  font-size: .8em;
+  font-weight: 400;
+  letter-spacing: .8em;
+
+}
+
+////////////////////////////////////////////////////////////////////////////////////
+
+
